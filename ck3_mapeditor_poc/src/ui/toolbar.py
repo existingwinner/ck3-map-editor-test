@@ -5,10 +5,10 @@ Toolbar - Панель инструментов
 """
 
 from PyQt6.QtWidgets import (
-    QToolBar, QAction, QComboBox, QLabel, QWidget, QHBoxLayout,
-    QSpinBox, QPushButton
+    QToolBar, QComboBox, QLabel, QWidget, QHBoxLayout,
+    QSpinBox, QPushButton, QColorDialog
 )
-from PyQt6.QtGui import QIcon, QKeySequence
+from PyQt6.QtGui import QIcon, QKeySequence, QAction
 from PyQt6.QtCore import Qt, pyqtSignal
 
 
@@ -19,6 +19,8 @@ class Toolbar(QToolBar):
     tool_changed = pyqtSignal(str)  # Название инструмента
     color_changed = pyqtSignal(int, int, int)  # RGB цвет
     brush_size_changed = pyqtSignal(int)  # Размер кисти
+    zoom_changed = pyqtSignal(int)  # Направление зума (-1 или 1)
+    fit_requested = pyqtSignal()  # Запрос на fit to window
     
     def __init__(self, parent=None):
         super().__init__("Main Toolbar", parent)
@@ -128,10 +130,6 @@ class Toolbar(QToolBar):
         fit_action.setToolTip("Fit to Window (Ctrl+0)")
         fit_action.triggered.connect(lambda: self.fit_requested.emit())
         self.addAction(fit_action)
-        
-        # Добавить сигнал zoom_changed после создания
-        self.zoom_changed = pyqtSignal(int)
-        self.fit_requested = pyqtSignal()
     
     def _on_tool_selected(self, tool_name: str):
         """Обработать выбор инструмента"""

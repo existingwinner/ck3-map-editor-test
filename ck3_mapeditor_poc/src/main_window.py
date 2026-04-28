@@ -10,10 +10,10 @@ MainWindow - Главное окно приложения с MDI
 
 from PyQt6.QtWidgets import (
     QMainWindow, QMdiArea, QMdiSubWindow, QApplication,
-    QMenuBar, QMenu, QAction, QToolBar, QWidget, QVBoxLayout,
-    QHBoxLayout, QSplitter, QLabel, QMessageBox
+    QMenuBar, QMenu, QToolBar, QWidget, QVBoxLayout,
+    QHBoxLayout, QSplitter, QLabel, QMessageBox, QFileDialog
 )
-from PyQt6.QtGui import QKeySequence
+from PyQt6.QtGui import QKeySequence, QAction
 from PyQt6.QtCore import Qt, pyqtSignal
 
 import numpy as np
