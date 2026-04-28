@@ -1,0 +1,5 @@
+province;red;green;blue;name;x
+1;255;0;0;c_test_red;x
+2;0;255;0;c_test_green;x
+3;0;0;255;c_test_blue;x
+4;255;255;0;c_test_yellow;x
